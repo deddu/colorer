@@ -127,7 +127,7 @@ public class colorer {
 					group = Arrays.asList(colorlist).indexOf(pair.getRGB());
 				}
 				mol.getBond(i).setSetSeq(group);
-				System.out.println("a= "+a+" b= "+b +"color= "+pair.getColor());
+//				System.out.println("a= "+a+" b= "+b +"color= "+pair.getColor());
 			}
 
 			

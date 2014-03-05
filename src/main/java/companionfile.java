@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.Gson;
@@ -118,6 +121,25 @@ public class companionfile {
 
     public Entries parse_json (String json){
         return new Gson().fromJson(json, Entries.class);
+    }
+
+    public static void main(String[] args) {
+        colorer c=new colorer();
+        try {
+          Entries  entries=new Gson().fromJson(new FileReader("./few_smiles_processed.json"), Entries.class);
+            for (Entry e : entries.getEntries()){
+                Format f = e.getFormat();
+                Data d  = e.getData();
+                try {
+                    c.dump_pic(f.getFname(),""+f.getWidth(),""+f.getHeight(), d);
+                } catch (IOException exc) {
+                    exc.printStackTrace();
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
