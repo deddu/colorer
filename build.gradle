@@ -4,7 +4,8 @@ apply plugin: 'application'
 
 sourceCompatibility = 1.7
 version = '1.0'
-mainClassName = 'colorer'
+//mainClassName = 'colorer'
+mainClassName = 'companionfile'
 
 repositories {
     mavenCentral()
